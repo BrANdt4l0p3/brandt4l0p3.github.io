@@ -12,6 +12,11 @@
        width: 100%;
     }
     
+    nav ul {
+        display: inline-block;
+        width: 100%
+    }
+    
     main {
         text-align: left;
         display: inline-block;
