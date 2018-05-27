@@ -1,52 +1,6 @@
-@media only screen and (min-width: 37.5em) {
-
-    /* Only CSS write declarations that need to be changed. Do not duplicated declarations that are already established in the main.css */
-    
-    nav button { display:none; }  /* hamburger button does not need to be shown in the medium on up views */
-    
-    section.forecast { display: inline-block;}  /* show the 10-day forecast with the medium view and up */
-    
-   nav {
-       display: inline-block;
-       vertical-align: top;
-       width: 100%;
-    }
-    
-    nav ul {
-        display: inline-block;
-        width: 100%
-    }
-    
-    main {
-        text-align: left;
-        display: inline-block;
-        vertical-align: top;
-        width: 75%;
-    }
-    
-    ul {
-        list-style-type: none;
-        margin: 0;
+@media only screen and (max-width: 1024px) {
+    .rightcolumn, .leftcolumn {   
+        width: 100%;
         padding: 0;
-        overflow: hidden;
-        background-color: #333;
-        
     }
-
-    li {
-        float: left;
-        transition: background-color 1s linear;
-    }
-
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    
-    li:hover {
-        background-color: #7affcf !important;
-    }
-  }
+}
