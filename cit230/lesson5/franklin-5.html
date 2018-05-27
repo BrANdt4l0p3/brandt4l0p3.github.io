@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,6 +29,7 @@
             </div>
     </div>
     <ul>
+        <li>
         <a href="#home">Home</a>
         <a class="active" href="#franklin">Franklin</a>
         <a href="#greenville">Greenville</a>
@@ -36,17 +37,18 @@
         <a href="#stormCenter">Storm Center</a>
         <a href="#gallery">Gallery</a>
         <a href="#myPage" style="float:right">Student Page</a>
+        </li>
     </ul>
 </nav>
 <br>
 <main>
   <div class="leftcolumn">
-    <img src="images/bloom-blossom-clouds-189848.jpg" width="100%" height="auto" alt="Summer">
+    <div id="Summer"><img src="images/bloom-blossom-clouds-189848.jpg" alt="Summer" style="width:100%;" /></div>
     <div class="tenDay">
       <h1>Ten Day Forecast</h1>
       <h5>(5/26/2018)</h5>
       <div class="weatherTable" style="height:118px;">
-          <section class="forecast">
+          <div class="forecast">
                 <table class="center">
                     <thead>
                         <tr>
@@ -77,7 +79,7 @@
                     </tr>
 	           </tbody>
               </table>
-          </section>
+          </div>
       </div>
     </div>
     <div class="card">
@@ -95,7 +97,7 @@
                   Sunny
                   <br>
                   <picture>
-                  <img src="images/cartoon-sun-vector-art.png" width="70" height="auto" alt="Sunny">
+                  <img src="images/cartoon-sun-vector-art.png" width="70" alt="Sunny">
                   </picture>
               </div>  
               <div class="highlow">
@@ -112,22 +114,22 @@
     </div>
     <div class="card">
       <h3>In The Gallery</h3>
-      <img src="images/background-beautiful-bloom-54459.jpg" width="100%" height="auto" alt="Summer">
-      <img src="images/adventure-boat-calm-302800.jpg" width="100%" height="auto" alt="Summer">
-      <img src="images/clouds-conifer-daylight-371589.jpg" width="100%" height="auto" alt="Summer">
+      <div id="Sunflower"><img src="images/background-beautiful-bloom-54459.jpg" alt="Sunflower" style="width:100%;" /></div>
+      <div id="prettyone"><img src="images/adventure-boat-calm-302800.jpg" alt="prettyone" style="width:100%;" /></div>
+      <div id="prettytwo"><img src="images/clouds-conifer-daylight-371589.jpg" alt="prettytwo" style="width:100%;" /></div>
     </div>
   </div>
 </main>
 
 <footer>
-    <section class="contact">
+    <div class="contact">
       Contact information placeholder
       999.999.9999
       123 Main St. Anytown, US 99999
       Google Map
-    </section>
-    <section class="footer-bar">&copy;2018 | All Rights Reserved | Site Title | <span id="currentdate">Current Date Placeholder</span>
-    </section>
+    </div>
+    <div class="footer-bar">&copy;2018 | All Rights Reserved | Site Title | <span id="currentdate">Current Date Placeholder</span>
+    </div>
 </footer>
 
 </body>
