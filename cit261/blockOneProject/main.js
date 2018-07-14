@@ -1,8 +1,13 @@
 var myGamePiece;
+var gamePieceTwo;
+var puck;
+var goalOne;
+var goalTwo;
 var myObstacles = [];
 
 function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece = new component(10, 100, "red", 40, 400);
+    gamePieceTwo = new component(10, 100, "red", screen.availWidth - 60, 400);
     myGameArea.start();
 }
 
@@ -115,10 +120,19 @@ function updateGameArea() {
     
     myGamePiece.speedX = 0;
     myGamePiece.speedY = 0; 
-    if (myGameArea.keys && myGameArea.keys[37]) {for(var a=0; a<=5; a+=.005){myGamePiece.speedX = -a} }
-    if (myGameArea.keys && myGameArea.keys[39]) {for(var b=0; b<=5; b+=.005){myGamePiece.speedX = b} }
-    if (myGameArea.keys && myGameArea.keys[38]) {for(var c=0; c<=5; c+=.005){myGamePiece.speedY = -c} }
-    if (myGameArea.keys && myGameArea.keys[40]) {for(var d=0; d<=5; d+=.005){myGamePiece.speedY = d} }    
+    //if (myGameArea.keys && myGameArea.keys[37]) {for(var a=0; a<=5; a+=.005){myGamePiece.speedX = -a} }
+    //if (myGameArea.keys && myGameArea.keys[39]) {for(var b=0; b<=5; b+=.005){myGamePiece.speedX = b} }
+    if (myGameArea.keys && myGameArea.keys[87]) {for(var a=0; a<=5; a+=.005){myGamePiece.speedY = -a} }
+    if (myGameArea.keys && myGameArea.keys[83]) {for(var b=0; b<=5; b+=.005){myGamePiece.speedY = b} }    
     myGamePiece.newPos();
     myGamePiece.update();
+    
+    gamePieceTwo.speedX = 0;
+    gamePieceTwo.speedY = 0; 
+    //if (myGameArea.keys && myGameArea.keys[37]) {for(var a=0; a<=5; a+=.005){myGamePiece.speedX = -a} }
+    //if (myGameArea.keys && myGameArea.keys[39]) {for(var b=0; b<=5; b+=.005){myGamePiece.speedX = b} }
+    if (myGameArea.keys && myGameArea.keys[38]) {for(var c=0; c<=5; c+=.005){gamePieceTwo.speedY = -c} }
+    if (myGameArea.keys && myGameArea.keys[40]) {for(var d=0; d<=5; d+=.005){gamePieceTwo.speedY = d} }    
+    gamePieceTwo.newPos();
+    gamePieceTwo.update();
 }
