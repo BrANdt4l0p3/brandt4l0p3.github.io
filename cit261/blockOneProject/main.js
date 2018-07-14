@@ -1,11 +1,8 @@
 var myGamePiece;
 var myObstacles = [];
-var myScore;
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 10, 120);
-    myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
 }
 
@@ -18,7 +15,14 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
-        },
+        window.addEventListener('keydown', function (e) {
+            myGameArea.keys = (myGameArea.keys || []);
+            myGameArea.keys[e.keyCode] = true;
+        })
+        window.addEventListener('keyup', function (e) {
+            myGameArea.keys[e.keyCode] = false; 
+        })
+    },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
@@ -46,19 +50,43 @@ function component(width, height, color, x, y, type) {
             ctx.fillRect(this.x, this.y, this.width, this.height);
         }
     }
+    
     this.newPos = function() {
         this.gravitySpeed += this.gravity;
         this.x += this.speedX;
         this.y += this.speedY + this.gravitySpeed;
         this.hitBottom();
+        this.hitTop();
+        this.hitSides();
+        
+    }
+    this.hitTop = function() {
+        var rocktop = 0;
+        if(this.y < rocktop) {
+            this.y = rocktop;
+            this.speedY = 0;
+        }
     }
     this.hitBottom = function() {
         var rockbottom = myGameArea.canvas.height - this.height;
         if (this.y > rockbottom) {
             this.y = rockbottom;
-            this.gravitySpeed = 0;
+            this.speedY = 0;
         }
     }
+    this.hitSides = function(){
+        var leftSide = 0;
+        if(this.x < leftSide) {
+            this.x = leftSide;
+            this.speedX = 0;
+        }
+        var rightSide = myGameArea.canvas.width - this.width;
+        if (this.x > rightSide) {
+            this.x = rightSide;
+            this.speedX = 0;
+        }
+    }
+    
     this.crashWith = function(otherobj) {
         var myleft = this.x;
         var myright = this.x + (this.width);
@@ -77,40 +105,20 @@ function component(width, height, color, x, y, type) {
 }
 
 function updateGameArea() {
-    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-    for (i = 0; i < myObstacles.length; i += 1) {
-        if (myGamePiece.crashWith(myObstacles[i])) {
-            return;
-        } 
-    }
     myGameArea.clear();
     myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(150)) {
-        x = myGameArea.canvas.width;
-        minHeight = 20;
-        maxHeight = 200;
-        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-        minGap = 50;
-        maxGap = 200;
-        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        myObstacles.push(new component(10, height, "green", x, 0));
-        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
-    }
-    for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -1;
+     
+    for (var i = 0; i < myObstacles.length; i += 1) {
+        myGamePiece.crashWith(myObstacles[i]);
         myObstacles[i].update();
     }
-    myScore.text="SCORE: " + myGameArea.frameNo;
-    myScore.update();
+    
+    myGamePiece.speedX = 0;
+    myGamePiece.speedY = 0; 
+    if (myGameArea.keys && myGameArea.keys[37]) {for(var a=0; a<=5; a+=.005){myGamePiece.speedX = -a} }
+    if (myGameArea.keys && myGameArea.keys[39]) {for(var b=0; b<=5; b+=.005){myGamePiece.speedX = b} }
+    if (myGameArea.keys && myGameArea.keys[38]) {for(var c=0; c<=5; c+=.005){myGamePiece.speedY = -c} }
+    if (myGameArea.keys && myGameArea.keys[40]) {for(var d=0; d<=5; d+=.005){myGamePiece.speedY = d} }    
     myGamePiece.newPos();
     myGamePiece.update();
-}
-
-function everyinterval(n) {
-    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-    return false;
-}
-
-function accelerate(n) {
-    myGamePiece.gravity = n;
 }
