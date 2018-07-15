@@ -1,13 +1,31 @@
 var myGamePiece;
 var gamePieceTwo;
 var puck;
-var goalOne;
-var goalTwo;
+var leftScore;
+var rightScore;
+var leftScoreNum = 0;
+var rightScoreNum = 0;
 var myObstacles = [];
 
 function startGame() {
     myGamePiece = new component(10, 100, "red", 40, 400);
     gamePieceTwo = new component(10, 100, "red", screen.availWidth - 60, 400);
+    leftScore = new component("30px", "Consolas", "white", 280, 40, "text");
+    rightScore = new component("30px", "Consolas", "white", screen.availWidth - 450, 40, "text");
+    puck = new component(20, 20, "blue", screen.availWidth/2, screen.availHeight/2);
+    var randX = Math.floor(Math.random() * 2) + 1;
+    var randY = Math.floor(Math.random() * 2) + 1;
+    
+    if(randX == 1)
+        puck.speedX = 5;
+    else
+        puck.speedX = -5;
+    
+    if(randY == 1)
+        puck.speedY = 5;
+    else
+        puck.speedY = -5;
+    
     myGameArea.start();
 }
 
@@ -42,8 +60,6 @@ function component(width, height, color, x, y, type) {
     this.speedY = 0;    
     this.x = x;
     this.y = y;
-    this.gravity = 0;
-    this.gravitySpeed = 0;
     this.update = function() {
         var ctx = myGameArea.context;
         if (this.type == "text") {
@@ -57,29 +73,25 @@ function component(width, height, color, x, y, type) {
     }
     
     this.newPos = function() {
-        this.gravitySpeed += this.gravity;
         this.x += this.speedX;
-        this.y += this.speedY + this.gravitySpeed;
-        this.hitBottom();
-        this.hitTop();
+        this.y += this.speedY;
         this.hitSides();
         
     }
-    this.hitTop = function() {
+    
+    this.hitSides = function(){
         var rocktop = 0;
         if(this.y < rocktop) {
             this.y = rocktop;
             this.speedY = 0;
         }
-    }
-    this.hitBottom = function() {
+        
         var rockbottom = myGameArea.canvas.height - this.height;
         if (this.y > rockbottom) {
             this.y = rockbottom;
             this.speedY = 0;
         }
-    }
-    this.hitSides = function(){
+        
         var leftSide = 0;
         if(this.x < leftSide) {
             this.x = leftSide;
@@ -90,6 +102,94 @@ function component(width, height, color, x, y, type) {
             this.x = rightSide;
             this.speedX = 0;
         }
+    }
+    
+    this.puckStuff = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.bounce();
+        this.bounceOffLeft(myGamePiece);
+        this.bounceOffRight(gamePieceTwo);
+    }
+    
+    this.bounce = function(){
+        var randX;
+        var randY;
+        var rocktop = 0;
+        if(this.y < rocktop) {
+            this.y = rocktop;
+            this.speedY *= -1;
+        }
+        
+        var rockbottom = myGameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+            this.y = rockbottom;
+            this.speedY *= -1;
+        }
+        
+        var leftSide = 0;
+        if(this.x < leftSide) {
+            this.x = screen.availWidth/2;
+            this.y = screen.availHeight/2;
+            rightScoreNum+=1;
+            randX = Math.floor(Math.random() * 2) + 1;
+            randY = Math.floor(Math.random() * 2) + 1;
+    
+            if(randX == 1)
+                puck.speedX = 5;
+            else
+                puck.speedX = -5;
+    
+            if(randY == 1)
+                puck.speedY = 5;
+            else
+                puck.speedY = -5;
+        }
+        var rightSide = myGameArea.canvas.width - this.width;
+        if (this.x > rightSide) {
+            this.x = screen.availWidth/2;
+            this.y = screen.availHeight/2;
+            leftScoreNum+=1;
+            randX = Math.floor(Math.random() * 2) + 1;
+            randY = Math.floor(Math.random() * 2) + 1;
+    
+            if(randX == 1)
+                puck.speedX = 5;
+            else
+                puck.speedX = -5;
+    
+            if(randY == 1)
+                puck.speedY = 5;
+            else
+                puck.speedY = -5;
+        }
+    }
+    this.bounceOffLeft = function(otherobj) {
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        
+        if(myleft < otherright && mytop < otherbottom && mybottom > othertop)
+            puck.speedX *= -1.2;
+    }
+    
+    this.bounceOffRight = function(otherobj) {
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        
+        if(myright > otherleft && mytop < otherbottom && mybottom > othertop)
+            puck.speedX *= -1.2;
     }
     
     this.crashWith = function(otherobj) {
@@ -117,6 +217,14 @@ function updateGameArea() {
         myGamePiece.crashWith(myObstacles[i]);
         myObstacles[i].update();
     }
+    
+    puck.puckStuff();
+    puck.update();
+    
+    leftScore.text="SCORE: " + leftScoreNum;
+    leftScore.update();
+    rightScore.text="SCORE: " + rightScoreNum;
+    rightScore.update();
     
     myGamePiece.speedX = 0;
     myGamePiece.speedY = 0; 
