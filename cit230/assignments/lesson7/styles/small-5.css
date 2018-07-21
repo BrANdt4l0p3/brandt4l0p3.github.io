@@ -80,4 +80,8 @@ p {
     display: flex;
     flex-direction: column;
 }
+    
+.container {
+    grid-template-columns: auto;
+}
 }

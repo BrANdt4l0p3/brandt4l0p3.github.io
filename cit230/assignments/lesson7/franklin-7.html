@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -22,21 +22,22 @@
         <button onclick="myFunction()" class="dropbtn">&#9776;</button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#Home">Home</a>
-                <a class="active" href="#Franklin">Franklin</a>
+                <a class="active" href="franklin-7.html">Franklin</a>
                 <a href="#Greenville">Greenville</a>
                 <a href="#Springfield">Springfield</a>
                 <a href="#StormCenter">Storm Center</a>
-                <a href="#Gallery">Gallery</a>
+                <a href="
+                         gallery.html">Gallery</a>
             </div>
     </div>
     
     <ul class='navigation'>
         <li><a href="#home">Home</a></li>
-        <li><a class="active" href="#franklin">Franklin</a></li>
+        <li><a class="active" href="franklin-7.html">Franklin</a></li>
         <li><a href="#greenville">Greenville</a></li>
         <li><a href="#springfield">Springfield</a></li>
         <li><a href="#stormCenter">Storm Center</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
     </ul>
 </nav>
     
@@ -111,8 +112,9 @@
               </div> 
               <div class="conditions">
                   <p>Precipitation: 0% chance</p>  
-                  <p>Wind Speed: 5 mpg SW</p>  
-              </div>           
+                  <p>Wind Speed: 5 mpg SW</p> 
+                  <p id="chilly"></p>
+              </div> 
           </section>
       </div>
       <p>It is a beautiful day today with few to no clouds and a 0% chance of precipitation.  We highly advise that you get outside and enjoy some fresh air!</p>
@@ -137,5 +139,6 @@
 </footer>
 <script src='scripts/main.js'></script>
 <script src='scripts/hamburger.js'></script>
+<script src='scripts/windchill.js'></script>
 </body>
 </html>

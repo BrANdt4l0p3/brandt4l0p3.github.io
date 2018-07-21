@@ -134,6 +134,30 @@ main {
     margin-top: 20px;
 }
 
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+    max-width: inherit;
+}
+
+.imageCard {
+    text-align: center;
+    width: 98%;
+    max-width: inherit;
+    height: auto;
+    background-color: mintcream;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.someimg {
+    background-color: #7affcf;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+}
+
 .tenDay {
     background-color: mintcream;
     padding: 20px;
