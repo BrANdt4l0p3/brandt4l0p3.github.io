@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>L05 - Franklin Weather</title>
+                <meta name="description" content="Lesson-5 weather page">
+                        <link rel="stylesheet" href="styles/main-5.css">
+                            <link rel="stylesheet" href="styles/medium-5.css">
+                                <link rel="stylesheet" href="styles/small-5.css">
+</head>
+<body>
+
+<header>
+  <h1>Weather Watchers</h1>
+  <p>Easy. Fast. Reliable.</p>
+</header>
+
+<nav>
+    <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a href="#Home">Home</a>
+                <a class="active" href="#Franklin">Franklin</a>
+                <a href="#Greenville">Greenville</a>
+                <a href="#Springfield">Springfield</a>
+                <a href="#StormCenter">Storm Center</a>
+                <a href="#Gallery">Gallery</a>
+            </div>
+    </div>
+    <ul>
+        <li>
+        <a href="#home">Home</a>
+        <a class="active" href="#franklin">Franklin</a>
+        <a href="#greenville">Greenville</a>
+        <a href="#springfield">Springfield</a>
+        <a href="#stormCenter">Storm Center</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#myPage" style="float:right">Student Page</a>
+        </li>
+    </ul>
+</nav>  
+<br>
+<main>
+  <div class="leftcolumn">
+    <br>
+    <div id="Summer"><img src="images/bloom-blossom-clouds-189848.jpg" alt="Summer" style="width:100%;" /></div>
+    <div class="tenDay">
+      <h1>Ten Day Forecast</h1>
+      <h5>(5/26/2018)</h5>
+      <div class="weatherTable" style="height:118px;">
+          <div class="forecast">
+                <table class="center">
+                    <thead>
+                        <tr>
+                        <th>Day 1</th>
+                        <th>Day 2</th>
+                        <th>Day 3</th>
+                        <th>Day 4</th>
+                        <th>Day 5</th>
+                        <th>Day 6</th>
+                        <th>Day 7</th>
+                        <th>Day 8</th>
+                        <th>Day 9</th>
+                        <th>Day 10</th>
+                        </tr>
+	               </thead>
+                <tbody>  
+                    <tr>
+                    <td>89&deg;F</td>
+                    <td>87&deg;F</td>
+                    <td>78&deg;F</td>
+                    <td>75&deg;F</td>
+                    <td>72&deg;F</td>
+                    <td>72&deg;F</td>
+                    <td>79&deg;F</td>
+                    <td>83&deg;F</td>
+                    <td>85&deg;F</td>
+                    <td>89&deg;F</td>
+                    </tr>
+	           </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Franklin Weather Alerts</h3>
+      <p>Despite the forecast of excellent weather these next few weeks, experts advise to be on the lookout for lightning storms coming in as soon as next month.  These storms are good news for those seeking relief from this year's drought, however, due to the dryness of these past few months there is an increased chance of brush fires caused by lightning strikes.  The local fire department has issued a statement urging citizens not to worry, and that they will be keeping a watchful eye on the lightning.  We advise you to take extra precautions when working or playing outside, and always remember to seek shelter in the event that you are caught unawares in one of these storms.  As for right now though, enjoy the good weather while it lasts, and we'll be sure to keep you updated!</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>Franklin</h2>
+      <div class="fakeimg" style="height:370px;">
+          <section class="weather-summary">
+            <h3>Weather Summary</h3>
+              <div class="current">
+                  Sunny
+                  <br>
+                  <picture>
+                  <img src="images/cartoon-sun-vector-art.png" width="70" alt="Sunny">
+                  </picture>
+              </div>  
+              <div class="highlow">
+                  <p>High: 90&deg;F</p>  
+                  <p>Low: 66&deg;F</p>  
+              </div> 
+              <div class="conditions">
+                  <p>Precipitation: 0% chance</p>  
+                  <p>Wind Speed: 5 mpg SW</p>  
+              </div>           
+          </section>
+      </div>
+      <p>It is a beautiful day today with few to no clouds and a 0% chance of precipitation.  We highly advise that you get outside and enjoy some fresh air!</p>
+    </div>
+    <div class="card">
+      <h3>In The Gallery</h3>
+      <div id="Sunflower"><img src="images/background-beautiful-bloom-54459.jpg" alt="Sunflower" style="width:100%;" /></div>
+      <div id="prettyone"><img src="images/adventure-boat-calm-302800.jpg" alt="prettyone" style="width:100%;" /></div>
+      <div id="prettytwo"><img src="images/clouds-conifer-daylight-371589.jpg" alt="prettytwo" style="width:100%;" /></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+    <aside>
+      Contact information placeholder
+      999.999.9999
+      123 Main St. Anytown, US 99999
+      Google Map
+    </aside>
+    <p class="footer-bar">&copy;2018 | All Rights Reserved | Site Title | <span id="currentdate">Current Date Placeholder</span></p>
+</footer>
+
+</body>
+</html>

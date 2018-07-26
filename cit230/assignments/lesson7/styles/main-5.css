@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px;
+    background: #ff7b42;
+}
+
+header {
+    font-family: 'Bree Serif', serif;
+    padding: 30px;
+    text-align: center;
+    background: #ff7b42;
+    color: mintcream;
+}
+
+h1 {
+    font-family: 'Bree Serif', serif;
+    font-size: 50px;
+}
+
+h2 {
+    font-family: 'Bree Serif', serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Bree Serif', serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+}
+
+nav {
+    font-size: 18px;
+}
+
+.navigation { 
+    list-style: none; padding-left: 0;
+}
+ 
+nav ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: none;
+    overflow: hidden;
+    background-color: dimgray;
+}
+
+nav a {
+    display: flex;
+    justify-content: space-evenly;
+    color: mintcream;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 1s linear;
+}
+
+nav a:hover {
+    background-color: #7affcf !important;
+    color: black;
+}
+
+nav a.active {
+    background-color: #7affcf;
+    color: black;
+}
+
+.dropbtn {
+    background-color: #7affcf;
+    color: mintcream;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: none;
+}
+
+.dropdown-content {
+    display: none;
+}
+
+.current {
+    text-align: center;
+    font-size: 17px;
+}
+
+.weather-summary {
+    font-weight: bold;
+}
+
+.weather-summary p{
+    font-size: 13px;
+}
+
+main {
+    display: flex;
+    align-content: space-around;
+}
+
+.leftcolumn {   
+    width: 75%;
+}
+
+.rightcolumn {
+    width: 25%;
+    background-color: #ff7b42;
+    padding-left: 20px;
+}
+
+.fakeimg {
+    background-color: #7affcf;
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    background-color: mintcream;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+    max-width: inherit;
+}
+
+.imageCard {
+    text-align: center;
+    width: 98%;
+    max-width: inherit;
+    height: auto;
+    background-color: mintcream;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.someimg {
+    background-color: #7affcf;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+}
+
+.tenDay {
+    background-color: mintcream;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.weatherTable {
+    background-color: mintcream;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, td, th {
+    border: 2px solid black;
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+main:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    font-size: 12px;
+    text-align: center;
+    background: mintcream;
+    margin-top: 20px;
+}
+.footer-bar {
+    font-size: 12px;
+}
