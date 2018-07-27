@@ -57,7 +57,7 @@
         
         <h3>Storm Information</h3>
         <label for="theDate">Date:</label>
-		  <input type="date" name="theDate"><br>
+		  <input type="date" name="theDate"><br><br>
         <label for="storms">Storm Type: </label>
 		  <input name="storms" list="stormlist">
             <datalist id="stormlist">
@@ -66,31 +66,29 @@
                 <option value="Hurricane">
                 <option value="Thunderstorm">
                 <option value="Tornado">
-            </datalist>
-        <br>
+            </datalist><br><br>
+        
 		<label for="severity">Storm Severity (1 to 10)</label>
 		<input type="range" id="rating" value="5" min="1" max="10" step="1" oninput="adjustRating(this.value)" onchange="adjustRating(this.value)">
-		<span id="ratingvalue">5</span><br>
+		<span id="ratingvalue">5</span><br><br>
+        
+        <select>
+            <option value="Select Region" disabled>Select Region</option>
+            <option value="Franklin">Franklin</option>
+            <option value="Greenville">Greenville</option>
+            <option value="Springfield">Springfield</option>
+        </select><br><br>
         
 		<fieldset class="tight">
 			<legend>User In-Danger?</legend>
-			<label for="q1">Where are most BYU-Idaho Online students located?</label><br>
+			<label for="q1">Are you in in danger?</label><br>
 			<input type="radio" name="q1" value="Yes"> Yes <br>
 			<input type="radio" name="q1" value="Maybe" checked> Maybe<br>
 			<input type="radio" name="q1" value="No"> No <br>
-		</fieldset>
-		<fieldset class="tight">
-			<legend>Check Boxes (Select all that apply)</legend>
-			<label for="lang">What languages do you know?</label><br>
-			<input type="checkbox" name="lang" value="JavaScript"> JavaScript<br>
-			<input type="checkbox" name="lang" value="Java"> Java <br>
-			<input type="checkbox" name="lang" value="VisualBasic"> Visual Basic <br>
-			<input type="checkbox" name="lang" value="CSharp"> C# <br>
-		</fieldset>
-		
-Choose a color: <input type="color" name="color"><br>
-		
-    
+		</fieldset><br>
+        
+        
+        <textarea rows="4" cols="50"></textarea>
 		<div>
 			<input type="submit">
 		</div>
