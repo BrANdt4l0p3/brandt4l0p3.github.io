@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>L05 - Franklin Weather</title>
+    <meta name="description" content="Lesson-5 weather page">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main-5.css">
+    <link rel="stylesheet" href="styles/medium-5.css">
+    <link rel="stylesheet" href="styles/small-5.css">
+</head>
+<body>
+
+<header>
+    <h1>Weather Watchers</h1>
+    <p>Easy. Fast. Reliable.</p>
+</header>
+
+<nav>
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a class="active" href="home.html">Home</a>
+                <a href="franklin-7.html">Franklin</a>
+                <a href="#Greenville">Greenville</a>
+                <a href="#Springfield">Springfield</a>
+                <a href="#StormCenter">Storm Center</a>
+                <a href="
+                         gallery.html">Gallery</a>
+            </div>
+    </div>
+    
+    <ul class='navigation'>
+        <li><a class="active" href="home.html">Home</a></li>
+        <li><a href="franklin-7.html">Franklin</a></li>
+        <li><a href="#greenville">Greenville</a></li>
+        <li><a href="#springfield">Springfield</a></li>
+        <li><a href="#stormCenter">Storm Center</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+</nav>
+    
+<br>
+    
+<main>
+    <div class="home"><br>
+        <div id="Summer"><img src="images/franklin-original.jpeg" alt="Summer" style="width:100%;" /></div>
+
+        <div class="card">
+            <h3>Franklin Weather Alerts</h3>
+            <p>Despite the forecast of excellent weather these next few weeks, experts advise to be on the lookout for lightning storms coming in as soon as next month.  These storms are good news for those seeking relief from this year's drought, however, due to the dryness of these past few months there is an increased chance of brush fires caused by lightning strikes.  The local fire department has issued a statement urging citizens not to worry, and that they will be keeping a watchful eye on the lightning.  We advise you to take extra precautions when working or playing outside, and always remember to seek shelter in the event that you are caught unawares in one of these storms.  As for right now though, enjoy the good weather while it lasts, and we'll be sure to keep you updated!</p>
+        </div> 
+    </div>
+    
+    <div class="container">
+        <div class="imageCard">
+            <div class="someimg">
+                <div id="Sunflower"><img src="images/background-beautiful-bloom-54459.jpg" alt="Sunflower" style="width: 100%;"/></div>
+            </div>
+            <div class="info">
+                <h3 id="nameOne"></h3>
+                <p id="mottoOne"></p>
+                <p id="yearOne"></p>
+                <p id="popOne"></p>
+                <p id="rainOne"></p>
+            </div>
+        </div>
+        <div class="imageCard">
+            <div class="someimg" >
+                <div id="Sunflower"><img src="images/adventure-boat-calm-302800.jpg" alt="Sunflower" style="width: 100%;"/></div>
+            </div>
+            <div class="info">
+                <h3 id="nameTwo"></h3>
+                <p id="mottoTwo"></p>
+                <p id="yearTwo"></p>
+                <p id="popTwo"></p>
+                <p id="rainTwo"></p>
+            </div>
+        </div>
+        <div class="imageCard">
+            <div class="someimg" >
+                <div id="Sunflower"><img src="images/clouds-conifer-daylight-371589.jpg" alt="Sunflower" style="width: 100%;"/></div>
+            </div>
+            <div class="info">
+                <h3 id="nameThree"></h3>
+                <p id="mottoThree"></p>
+                <p id="yearThree"></p>
+                <p id="popThree"></p>
+                <p id="rainThree"></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <aside>
+      Contact information placeholder
+      999.999.9999
+      123 Main St. Anytown, US 99999
+      Google Map
+    </aside>
+    <p class="footer-bar">&copy;2018 | All Rights Reserved | Site Title | <span id="currentdate"></span></p>
+</footer>
+<script src='scripts/main.js'></script>
+<script src='scripts/hamburger.js'></script>
+<script src='scripts/windchill.js'></script>
+<script src='scripts/json.js'></script>
+</body>
+</html>
